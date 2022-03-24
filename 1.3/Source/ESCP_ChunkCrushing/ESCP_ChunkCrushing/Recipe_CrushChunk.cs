@@ -21,7 +21,7 @@ namespace ESCP_ChunkCrushing
 
     public class Recipe_CrushChunk : RecipeWorker
     {
-        public override void ConsumeIngredient(Thing ingredient, RecipeDef recipe, Map map)
+        public override void Notify_IterationCompleted(Pawn billDoer, List<Thing> ingredients)
         {
             if (Main.defs.NullOrEmpty())
             {
@@ -34,30 +34,40 @@ namespace ESCP_ChunkCrushing
                 /* Spawning items
                  * done this way if count is larger than stack size
                  */
-
-                int num = output.outputRange.RandomInRange;
-                int limit = output.outputThingDef.stackLimit;
-
-                while (num != 0)
+                if (output.outputThingDef != null)
                 {
-                    Thing thing = ThingMaker.MakeThing(output.outputThingDef);
-                    if (num >= limit)
-                    {
-                        thing.stackCount = limit;
-                        num -= limit;
-                    }
-                    else
-                    {
-                        thing.stackCount = num;
-                        num = 0;
-                    }
-                    GenPlace.TryPlaceThing(thing, ingredient.Position, map, ThingPlaceMode.Near, null, null, default(Rot4));
-                }
+                    int num = output.outputRange.RandomInRange;
+                    int limit = output.outputThingDef.stackLimit;
 
+                    while (num != 0)
+                    {
+                        Thing thing = ThingMaker.MakeThing(output.outputThingDef);
+                        if (num >= limit)
+                        {
+                            thing.stackCount = limit;
+                            num -= limit;
+                        }
+                        else
+                        {
+                            thing.stackCount = num;
+                            num = 0;
+                        }
+                        GenPlace.TryPlaceThing(thing, billDoer.Position, billDoer.Map, ThingPlaceMode.Near, null, null, default(Rot4));
+                        if (output.isSpecial)
+                        {
+                            Messages.Message("ESCP_Tools_Crushing_Special".Translate(billDoer.Name, thing.Label), thing, MessageTypeDefOf.PositiveEvent, false);
+                        }
+                    }
+
+                }
+                else
+                {
+                    Messages.Message("ESCP_Tools_Crushing_Failed".Translate(billDoer.Name), billDoer, MessageTypeDefOf.RejectInput, false);
+                }
             }
 
             //do the vanilla shite
-            base.ConsumeIngredient(ingredient, recipe, map);
+            base.Notify_IterationCompleted(billDoer, ingredients);
         }
     }
 }
