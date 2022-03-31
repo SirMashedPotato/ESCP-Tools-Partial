@@ -1,0 +1,4 @@
+J:\Modding\Github\ESCP-Tools\1.3\Assemblies\ESCP_ShieldDig.dll
+J:\Modding\Github\ESCP-Tools\1.3\Source\ESCP_ShieldDig\ESCP_ShieldDig\obj\Debug\ESCP_ShieldDig.csprojAssemblyReference.cache
+J:\Modding\Github\ESCP-Tools\1.3\Source\ESCP_ShieldDig\ESCP_ShieldDig\obj\Debug\ESCP_ShieldDig.csproj.CoreCompileInputs.cache
+J:\Modding\Github\ESCP-Tools\1.3\Source\ESCP_ShieldDig\ESCP_ShieldDig\obj\Debug\ESCP_ShieldDig.dll

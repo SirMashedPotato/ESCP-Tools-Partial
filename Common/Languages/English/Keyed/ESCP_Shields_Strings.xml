@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- General -->
+
+	<ESCP_Shields_ImplantShield>Plant {0}</ESCP_Shields_ImplantShield>
+	<ESCP_Shields_ImplantShield_Tooltip>Plant the shield into the ground, improving defensive capabilities, but restricting movement.</ESCP_Shields_ImplantShield_Tooltip>
+	<ESCP_Shields_RemoveShield>Remove {0}</ESCP_Shields_RemoveShield>
+	<ESCP_Shields_RemoveShield_Tooltip>Remove the base of the shield from the ground, allowing free movement again.</ESCP_Shields_RemoveShield_Tooltip>
+
+
+</LanguageData>

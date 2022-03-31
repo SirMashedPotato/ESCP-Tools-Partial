@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Thrall -->
+
+	<HediffDef>
+		<defName>ESCP_Shields_PlantedShield</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>planted shield</label>
+		<description>Platning a shield into the ground, improving defensive capabilties, but restricting movement.</description>
+		<defaultLabelColor>(0.8, 0.6, 1.0)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+
+		<stages>
+			<li>
+				<statOffsets>
+					<RangedShieldBlockChance>0.2</RangedShieldBlockChance>
+					<MeleeShieldBlockChance>0.3</MeleeShieldBlockChance>
+					<MoveSpeed>-100</MoveSpeed>	<!-- Probably a better way to do this -->
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+	
+</Defs>
