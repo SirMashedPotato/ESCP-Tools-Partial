@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- =========================== Neutral ============================-->
+  
+	<IncidentDef>
+		<defName>GENERICANIMALWANDERSINTEST</defName>
+		<label>GENERICANIMALWANDERSINTEST</label>
+		<letterLabel>{0} wanders in</letterLabel>	<!-- {0} corresponds to the pawn kind label -->
+		<letterText>A group of {0} {1} have wandered into the area, and will leave after a while. Be warned {1} are no simple foe, and your actions may have consequences.</letterText>	<!-- {0} is the number, {1} is the pawn kind label  -->
+		<letterDef>ThreatSmall</letterDef> <!-- also ThreatBig, NeutralEvent, PositiveEvent -->
+		<category>Misc</category>
+		<targetTags>
+		  <li>Map_PlayerHome</li>
+		</targetTags>
+		<baseChance>0.7</baseChance>
+		<minRefireDays>13</minRefireDays>
+		
+		<workerClass>GenericWandersIn.IncidentWorker_GenericWandersIn</workerClass>	<!-- don't change this -->
+		<modExtensions>
+			<!-- needs this -->
+			<li Class="GenericWandersIn.IncidentProperties">
+				<kindDef>Emu</kindDef>	<!-- the kind to spawn -->
+				<max>30~50</max>	<!-- the maximum number that can spawn -->
+				<leaveMapAfterTime>true</leaveMapAfterTime>	<!-- whether they leave the map after a random amount of time -->
+            </li>
+		</modExtensions>
+		
+	</IncidentDef>
+
+</Defs>
